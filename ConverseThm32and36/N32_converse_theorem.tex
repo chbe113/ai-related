@@ -1,0 +1,545 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Translation relations and a twist-free converse theorem at level 32},
+ pdfsubject={Generalized translation lemmas and the level 32 converse theorem}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\HH}{\mathfrak H}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\bb}{\beta}
+\newcommand{\tr}{\operatorname{tr}}
+\title{Translation relations and a twist-free converse theorem at level $32$}
+\author{}
+\date{28 October 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the holomorphic Conrey--Farmer converse theorem at level $32$
+for every positive even weight and both Fricke eigenvalues. Only the
+Euler conditions at $2$ and $3$ are needed. The proof develops a signed
+two-term elliptic criterion, applies it uniformly to the rescaled
+$m=3$ relations at levels $4,8,16,32$, and completes the level $32$
+case by an explicit character of $\Gamma_0(8)$. The character is
+nontrivial on every cusp stabilizer, which proves cuspidality without
+additional coefficient bounds. We also record a parameterized version
+of the three-dimensional translation module used at level $36$.
+This is a separate continuation of the level $36$ work; that work is
+not modified here.
+\end{abstract}
+
+\section{The new level and its hypotheses}
+
+The transformation-law results of Conrey and Farmer \cite{CF};
+Conrey, Farmer, Odgers, and Snaith \cite{CFOS}; and
+Bedert, Cooper, Oliver, and Zhang \cite{BCOZ} cover, collectively,
+$1\leq N\leq18$ and $N=20,23,24$. Level $32$ is outside these lists.
+The assertion below includes a separate proof of vanishing at all cusps;
+we do not infer cuspidality from the functional equation alone.
+
+\begin{theorem}\label{thm:32}
+Let $k\geq2$ be even and let $a_1=1$. Suppose
+\[
+ F(s)=\sum_{n\geq1}a_n n^{-s}
+\]
+converges in some right half-plane and satisfies the following conditions:
+\begin{enumerate}
+\item The function
+\[
+ \Lambda(s)=\left(\frac{\sqrt{32}}{2\pi}\right)^s\Gamma(s)F(s)
+\]
+extends to an entire function bounded in every closed vertical strip,
+and $\Lambda(s)=\omega\Lambda(k-s)$ for some $\omega\in\{1,-1\}$.
+\item $a_{2n}=0$ for every $n\geq1$.
+\item For every $n\geq1$,
+\[
+ a_{3n}=a_3a_n-3^{k-1}a_{n/3},
+ \qquad a_{n/3}=0\quad\hbox{if }3\nmid n.
+\]
+\end{enumerate}
+Then
+\[
+ f(z)=\sum_{n\geq1}a_n e^{2\pi inz}\ \in S_k(\Gamma_0(32)).
+\]
+Both functional-equation signs are allowed, and there is no additional
+growth assumption on the coefficients.
+\end{theorem}
+
+Conditions (2)--(3) are precisely the coefficient conditions imposed by
+the partial Euler product
+\[
+ F(s)=\frac{1}{1-a_3 3^{-s}+3^{k-1-2s}}
+       \sum_{(n,6)=1}a_n n^{-s}.
+\]
+Consequently the full Conrey--Farmer Euler product at level $32$
+implies the local hypotheses of the theorem. No local factor at any
+prime other than $2$ and $3$ is used.
+
+For $M=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)
+\in\mathrm{GL}_2^+(\mathbb R)$ use the normalized slash action
+\[
+ (v|_kM)(z)=(\det M)^{k/2}(cz+d)^{-k}
+ v\left(\frac{az+b}{cz+d}\right).
+\]
+We suppress the subscript. Since $k$ is even, all nonzero scalar
+matrices act trivially. Put
+\[
+ T=\bb(1),\qquad
+ \bb(t)=\begin{pmatrix}1&t\\0&1\end{pmatrix},\qquad
+ S=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+\]
+\[
+ H_N=\begin{pmatrix}0&-1\\N&0\end{pmatrix},\qquad
+ W_M=\begin{pmatrix}1&0\\M&1\end{pmatrix}.
+\]
+Convergence at a real point implies $a_n=O(n^A)$ for some $A\geq0$.
+Thus $f$ is holomorphic on $\HH$. Mellin inversion and the functional
+equation give
+\begin{equation}\label{eq:fricke}
+ f|H_N=\eps f,\qquad \eps=(-1)^{k/2}\omega\in\{1,-1\}.
+\end{equation}
+This is the usual Hecke argument, with the analytic root number
+$\omega$ distinguished from the slash eigenvalue $\eps$.
+
+\section{Two generalizations of the level \texorpdfstring{$36$}{36} method}
+
+\subsection{The translation module with a parameter}
+
+\begin{proposition}\label{prop:module}
+Suppose $h$ is holomorphic on $\HH$, $h|S=\eps h$ with $\eps^2=1$,
+and, for some $\tau\in\mathbb C$,
+\[
+ h|(T^2-\tau T+1)=0.
+\]
+Set $g=h|T$ and $v=g|S$. The span of $h,g,v$ is stable under
+$\SL_2(\mathbb Z)$, with action
+\begin{equation}\label{eq:module}
+\begin{array}{c|cc}
+ & |S & |T\\ \hline
+ h & \eps h & g\\
+ g & v & \tau g-h\\
+ v & g & \tau h-\eps v
+\end{array}
+\end{equation}
+No linear independence is required. The formal matrices are
+\[
+ A_\eps=\begin{pmatrix}\eps&0&0\\0&0&1\\0&1&0\end{pmatrix},
+ \qquad
+ B_{\tau,\eps}=\begin{pmatrix}0&1&0\\-1&\tau&0\\\tau&0&-\eps\end{pmatrix},
+\]
+and they satisfy
+\[
+ A_\eps^2=(A_\eps B_{\tau,\eps})^3=I,
+ \qquad
+ \det(XI-B_{\tau,\eps})=(X+\eps)(X^2-\tau X+1).
+\]
+\end{proposition}
+\begin{proof}
+The translation equation gives $h|T^{-1}=\tau h-g$.
+The identity $STS=T^{-1}ST^{-1}$, projectively, gives
+\[
+ \eps v=h|STS=(\tau\eps h-v)|T^{-1}.
+\]
+Right multiplication by $T$ yields $v|T=\tau h-\eps v$.
+All the other entries in the table follow directly from the definitions.
+The matrix identities follow by multiplication.
+\end{proof}
+
+The values $\tau=-1,0,1$ correspond to Fourier frequencies with
+translation eigenvalues that are primitive third, fourth, and sixth
+roots, respectively. Thus the same construction applies after rescaling
+at levels $9,16,36$. The module itself does not establish cuspidality
+or the required congruence kernel in every case; these remain separate
+steps. In particular, the Eisenstein caveat at levels $9$ and $16$ in
+\cite[Section~5]{CF} must be respected.
+
+\subsection{A signed two-term elliptic criterion}
+
+\begin{lemma}[Elliptic vanishing]\label{lem:vanish}
+Let $k>0$ be even and $u$ holomorphic on $\HH$. If
+$u|E=\xi u$, where $E\in\SL_2(\mathbb R)$ is elliptic of infinite
+order and $\xi$ is a root of unity, then $u=0$.
+\end{lemma}
+\begin{proof}
+Taking a positive power reduces to $u|E=u$, with $E$ still elliptic
+of infinite order. If $a\in\HH$ is its fixed point, the coordinate
+$w=(z-a)/(z-\bar a)$ identifies its action with $w\mapsto\zeta w$,
+where $\zeta$ has infinite order on the unit circle. Write
+$u(z)(dz)^{k/2}=U(w)(dw)^{k/2}$. Invariance gives
+\[
+ U(w)=\zeta^{k/2}U(\zeta w).
+\]
+For $U(w)=\sum_{j\geq0}c_jw^j$ it follows that
+$(1-\zeta^{j+k/2})c_j=0$. Since $j+k/2>0$, all $c_j$ vanish.
+\end{proof}
+
+\begin{lemma}[Symmetric pair]\label{lem:pair}
+Suppose $h|T=\eta h$ with $\eta$ a root of unity. Let
+$C\in\SL_2(\mathbb R)$, $m\in\mathbb Z$, $t\in\mathbb R$, and
+$\lambda\in\{1,-1\}$. Put $C'=T^mC^{-1}T^{-m}$.
+If
+\begin{equation}\label{eq:pair}
+ h|(1-\lambda C)\bb(-t)+h|(1-\lambda C')\bb(t)=0
+\end{equation}
+and
+\[
+ E=C^{-1}\bb(2t-m)
+\]
+is elliptic of infinite order, then $h|C=\lambda h$.
+\end{lemma}
+\begin{proof}
+Let $u=h|(1-\lambda C)$. Using only the known scalar action of
+$T^m$, we obtain
+\[
+ h|(1-\lambda C')
+ =\eta^m h|(1-\lambda C^{-1})T^{-m}
+ =-\lambda\eta^m u|C^{-1}T^{-m}.
+\]
+Thus \eqref{eq:pair}, right-multiplied by $\bb(t)$, becomes
+\[
+ u=\lambda\eta^m u|C^{-1}\bb(2t-m).
+\]
+Apply Lemma~\ref{lem:vanish}.
+\end{proof}
+
+This formulation permits signed transformation laws and integer
+translation conjugacies. It is useful to check the trace directly:
+if $C=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$, then
+\[
+ \tr\bigl(C^{-1}\bb(s)\bigr)=a+d-cs.
+\]
+A determinant-one real matrix with rational, nonintegral trace in
+$(-2,2)$ is elliptic of infinite order. Indeed, finite order would make
+its trace a rational algebraic integer, hence an integer.
+
+\section{The uniform rescaled relation at levels \texorpdfstring{$4,8,16,32$}{4,8,16,32}}
+
+We first record the needed consequence of a good Euler factor, including
+the justification of the left replacements in the group algebra.
+
+\begin{lemma}[Prime relation]\label{lem:prime}
+Suppose $f|T=f$, $f|H_N=\eps f$, $\eps^2=1$, and for a prime
+$p\nmid N$ the coefficients of $f$ satisfy
+$a_{pn}=a_pa_n-p^{k-1}a_{n/p}$. For each nonzero residue class $b$
+modulo $p$, choose an integer $c$ such that $Nbc\equiv-1\pmod p$,
+and put
+\[
+ \gamma_b=\begin{pmatrix}p&-b\\-Nc&(1+Nbc)/p\end{pmatrix}.
+\]
+Then
+\begin{equation}\label{eq:prime}
+ f\bigg|\sum_{b\bmod p}^{*}(1-\gamma_b)\bb(b/p)=0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The coefficient recurrence is equivalent to
+\[
+ f|\mathcal T_p=p^{1-k/2}a_pf,\qquad
+ \mathcal T_p=\begin{pmatrix}p&0\\0&1\end{pmatrix}
+ +\sum_{r=0}^{p-1}\begin{pmatrix}1&r\\0&p\end{pmatrix}.
+\]
+Conjugate by $H_N$ and subtract. The two diagonal terms cancel.
+Right multiplication by $\operatorname{diag}(p,1)$ gives
+\[
+ f\bigg|\sum_{r=1}^{p-1}\bb(r/p)
+ =f\bigg|\sum_{c=1}^{p-1}\begin{pmatrix}p^2&0\\-Ncp&1\end{pmatrix}.
+\]
+Periodicity permits any representatives for $r$. Also
+$f|W_N=f$, since $W_N=H_NT^{-1}H_N^{-1}$.
+Replacing $c$ by $c+pj$ on the right is therefore permitted:
+it amounts to left multiplication by $W_N^{-j}$.
+Reindex by $Nbc\equiv-1\pmod p$ and use the exact identity
+\[
+ \gamma_b\bb(b/p)=\begin{pmatrix}p&0\\-Nc&1/p\end{pmatrix}.
+\]
+Scalar matrices do not affect the slash action, giving \eqref{eq:prime}.
+This is the prime case of \cite[Corollary~2]{CF}.
+\end{proof}
+
+Now let $N=4M$ with $3\nmid M$. Suppose $f$ has the functional
+equation at level $N$, $a_{2n}=0$, and the good Euler recurrence at $3$.
+Put $D=\operatorname{diag}(1,2)$ and
+\[
+ h(z)=f(z/2)=2^{k/2}(f|D)(z).
+\]
+Odd Fourier support and Fricke conjugation give
+\begin{equation}\label{eq:half}
+ h|T=-h,\qquad h|H_M=\eps h,\qquad h|W_M=-h.
+\end{equation}
+The last equality uses $W_M=H_MT^{-1}H_M^{-1}$ and $\eps^2=1$.
+
+Define $\sigma\in\{1,-1\}$ by $\sigma M\equiv-1\pmod3$.
+In Lemma~\ref{lem:prime}, choose $b=-1,c=-\sigma$ and
+$b=1,c=\sigma$. After conjugating by $D$, the relation is
+\begin{equation}\label{eq:AB}
+ h|(1-A)\bb(-2/3)+h|(1-B)\bb(2/3)=0,
+\end{equation}
+where
+\[
+ A=\begin{pmatrix}3&2\\2\sigma M&(1+4\sigma M)/3\end{pmatrix},
+ \qquad
+ B=\begin{pmatrix}3&-2\\-2\sigma M&(1+4\sigma M)/3\end{pmatrix}.
+\]
+Set
+\begin{equation}\label{eq:Cgeneral}
+ C=-W_M^{-\sigma}A
+  =\begin{pmatrix}-3&-2\\\sigma M&(2\sigma M-1)/3\end{pmatrix},
+ \qquad
+ C'=-W_M^{\sigma}B
+  =\begin{pmatrix}-3&2\\-\sigma M&(2\sigma M-1)/3\end{pmatrix}.
+\end{equation}
+All four matrices have determinant one. Because $h|W_M^{\pm1}=-h$,
+\eqref{eq:AB} becomes
+\begin{equation}\label{eq:CC}
+ h|(1+C)\bb(-2/3)+h|(1+C')\bb(2/3)=0.
+\end{equation}
+A direct multiplication gives
+\begin{equation}\label{eq:r}
+ C'=\bb(r)C^{-1}\bb(-r),\qquad
+ r=\frac23+\frac{8}{3\sigma M}.
+\end{equation}
+
+\begin{proposition}\label{prop:four}
+Under the assumptions just made, if $M\in\{1,2,4,8\}$, then
+$h|C=-h$ for the matrix $C$ in \eqref{eq:Cgeneral}.
+\end{proposition}
+\begin{proof}
+For these four values, $r$ is an integer. Apply Lemma~\ref{lem:pair}
+with $\eta=-1$, $\lambda=-1$, $m=r$, and $t=2/3$.
+The determinant-one matrix
+\[
+ E=C^{-1}\bb(4/3-r)
+\]
+has trace
+\[
+ \frac{2\sigma M-10}{3}
+ -\sigma M\left(\frac23-\frac{8}{3\sigma M}\right)
+ =-\frac23.
+\]
+It is therefore elliptic of infinite order, proving the assertion.
+\end{proof}
+
+\begin{center}
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+$M$ & $N=4M$ & $\sigma$ & $r$ & $\tr E$\\
+\midrule
+1 & 4  & $-1$ & $-2$ & $-2/3$\\
+2 & 8  & $ 1$ & $ 2$ & $-2/3$\\
+4 & 16 & $-1$ & $ 0$ & $-2/3$\\
+8 & 32 & $ 1$ & $ 1$ & $-2/3$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The range is exact for this particular integer-translation argument:
+if $r$ in \eqref{eq:r} is integral, then
+$\sigma M(3r-2)=8$, so $M$ divides $8$. For other $M$, the same
+matrix identities remain valid, but \eqref{eq:half} does not provide
+a scalar action of the nonintegral translation $\bb(r)$.
+No such scalar action is assumed here.
+
+\section{Completion of the level \texorpdfstring{$32$}{32} transformation law}
+
+Specialize to $M=8$. We have
+\[
+ A=\begin{pmatrix}3&2\\16&11\end{pmatrix},\qquad
+ B=\begin{pmatrix}3&-2\\-16&11\end{pmatrix},\qquad
+ C=\begin{pmatrix}-3&-2\\8&5\end{pmatrix},\qquad
+ C'=\begin{pmatrix}-3&2\\-8&5\end{pmatrix}.
+\]
+For clarity, the complete defect calculation in this case is
+\[
+ W_8^{-1}A=-C,\qquad W_8B=-C',\qquad C'=TC^{-1}T^{-1}.
+\]
+Let $u=h|(1+C)$. Since $h|T=-h$,
+\[
+ h|(1+C')=-u|C^{-1}T^{-1}.
+\]
+Equation \eqref{eq:CC} gives
+\begin{equation}\label{eq:explicitE}
+ u=u|E,\qquad
+ E=C^{-1}\bb(1/3)
+  =\begin{pmatrix}5&11/3\\-8&-17/3\end{pmatrix},
+ \qquad \tr E=-2/3.
+\end{equation}
+Thus $u=0$ and
+\begin{equation}\label{eq:gensigns}
+ h|T=h|W_8=h|C=-h.
+\end{equation}
+
+\begin{lemma}\label{lem:generators}
+Projectively,
+\[
+ \Gamma_0(8)=\langle T,W_8,C\rangle.
+\]
+\end{lemma}
+\begin{proof}
+First, projectively, $\Gamma(2)$ is generated by
+$T^2$ and $\left(\begin{smallmatrix}1&0\\2&1\end{smallmatrix}\right)$.
+Here is the elementary reduction argument. In the first column of an
+element of $\Gamma(2)$, the top entry is odd and the bottom entry is
+even. Left multiplication by powers of these two generators subtracts
+even multiples of one entry from the other. Choosing a nearest multiple
+makes the new absolute value strictly smaller than the other one:
+equality is impossible because of the different parities. Repeating
+reduces the bottom entry to zero, after which the matrix is a power of
+$T^2$, up to sign.
+
+Conjugation by $D=\operatorname{diag}(1,2)$ identifies $\Gamma(2)$
+with $\Gamma_0(4)$ and carries these generators to $T,W_4$.
+The homomorphism
+\[
+ \Gamma_0(4)\longrightarrow\mathbb Z/2\mathbb Z,
+ \qquad
+ \begin{pmatrix}a&b\\4c&d\end{pmatrix}\longmapsto c\pmod2
+\]
+has kernel $\Gamma_0(8)$. Using representatives $1,W_4$, Schreier's
+lemma gives generators
+\[
+ T,\qquad W_4^2=W_8,\qquad W_4TW_4^{-1}.
+\]
+Finally,
+\[
+ C=(W_4^{-1}T)^2,\qquad
+ W_4TW_4^{-1}=W_8CT^{-1}.
+\]
+This proves the assertion, and also verifies directly the generating
+set displayed in \cite[Section~2]{CF}.
+\end{proof}
+
+For $\gamma=\left(\begin{smallmatrix}a&b\\8c&d\end{smallmatrix}\right)
+\in\Gamma_0(8)$ define
+\begin{equation}\label{eq:chi}
+ \chi(\gamma)=(-1)^{b+c}.
+\end{equation}
+This is a character. Indeed $a,d$ are odd, and multiplication adds
+both $b$ and $c$ modulo $2$. It is trivial on $-I$ and takes the value
+$-1$ on each of $T,W_8,C$. Thus \eqref{eq:gensigns} and
+Lemma~\ref{lem:generators} imply
+\begin{equation}\label{eq:charlaw}
+ h|\gamma=\chi(\gamma)h\qquad(\gamma\in\Gamma_0(8)).
+\end{equation}
+
+For every $\gamma=\left(\begin{smallmatrix}a&b\\32c&d\end{smallmatrix}\right)
+\in\Gamma_0(32)$ we have
+\[
+ D^{-1}\gamma D=\begin{pmatrix}a&2b\\16c&d\end{pmatrix}
+ \in\Gamma_0(8),\qquad
+ \chi(D^{-1}\gamma D)=(-1)^{2b+2c}=1.
+\]
+Since $h=2^{k/2}f|D$, equation \eqref{eq:charlaw} proves
+$f|\gamma=f$. Only inclusion of the conjugated group in
+$\ker\chi$ is needed; these two groups are not asserted to be equal.
+
+\section{Vanishing at every cusp}
+
+The coefficient bound already obtained implies
+\[
+ f(x+iy)=O(y^{-A-1})\qquad(0<y\leq1),
+\]
+uniformly in $x$. It follows that $h|\alpha$ has at most polynomial
+growth as $y\to\infty$, uniformly for $x$ in a bounded interval,
+for every $\alpha\in\mathrm{GL}_2^+(\mathbb Q)$. To see this when
+the lower-left entry of $\alpha$ is nonzero, use
+$\operatorname{Im}(\alpha z)=\det(\alpha)y/|cz+d|^2\asymp y^{-1}$
+and the factor $(cz+d)^{-k}$. When the lower-left entry is zero,
+the Fourier series instead gives exponential decay.
+
+The cusps of $\Gamma_0(8)$ are represented by
+$\infty,0,1/2,1/4$, with respective widths $1,8,2,1$.
+For a direct completeness check, the four denominators have distinct
+greatest common divisors with $8$, so the cusps are inequivalent;
+their widths sum to $12=[\SL_2(\mathbb Z):\Gamma_0(8)]$.
+They therefore exhaust the orbits of the parabolic action on the
+twelve cosets. Representatives and their primitive stabilizers are:
+\begin{center}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{@{}cclc@{}}
+\toprule
+Cusp & Width $w$ & $P=\alpha T^w\alpha^{-1}$ & $\chi(P)$\\
+\midrule
+$\infty$ & 1 & $T$ & $-1$\\
+$0$ & 8 & $W_8^{-1}$ & $-1$\\
+$1/2$ & 2 & $\begin{pmatrix}-3&2\\-8&5\end{pmatrix}$ & $-1$\\[3pt]
+$1/4$ & 1 & $\begin{pmatrix}-3&1\\-16&5\end{pmatrix}$ & $-1$\\[3pt]
+\bottomrule
+\end{tabular}
+\end{center}
+Here take $\alpha=I,S,
+\left(\begin{smallmatrix}1&0\\2&1\end{smallmatrix}\right),
+\left(\begin{smallmatrix}1&0\\4&1\end{smallmatrix}\right)$,
+respectively. Equation \eqref{eq:charlaw} shows that
+\[
+ (h|\alpha)(z+w)=-(h|\alpha)(z).
+\]
+Consequently $h|\alpha$ has a Fourier expansion of period $2w$
+containing only odd indices. Polynomial growth excludes every negative
+index: equivalently, the Laurent series in $q=e^{2\pi iz/(2w)}$
+has no negative powers, by Cauchy's coefficient estimate and the
+bound by a power of $\log(1/|q|)$. Anti-periodicity excludes the
+constant term. Thus $h|\alpha$ decays exponentially at every one
+of these cusps.
+
+Every rational cusp is equivalent to one of them under $\Gamma_0(8)$.
+The character law therefore gives vanishing at every rational cusp,
+also when $h$ is viewed on the subgroup $D^{-1}\Gamma_0(32)D$.
+Rational rescaling preserves this vanishing. Hence $f$ vanishes at
+every cusp of $\Gamma_0(32)$, completing the proof of
+Theorem~\ref{thm:32}.
+
+\section{What has and has not been generalized}
+
+The translation-module calculation now has the arbitrary parameter
+$\tau$ of Proposition~\ref{prop:module}. The defect argument is the
+signed criterion of Lemma~\ref{lem:pair}, which is independent of the
+level. The half-translation reduction works for every $N$ divisible
+by $4$, and its $m=3$ matrix identities work whenever $3\nmid N$.
+The integer-conjugacy step closes uniformly for $N=4,8,16,32$.
+Among these, level $32$ supplies the additional converse theorem.
+
+This argument does not establish the converse theorem at arbitrary
+$4M$. For example, if $M=7$, the parameter in \eqref{eq:r} is $2/7$,
+and the known anti-periodicity under $T$ does not control
+$\bb(2/7)$. The preceding proofs do not replace it by a scalar.
+Further levels require another relation or a different factorization.
+
+The accompanying program \texttt{verify\_N32.py} checks the rational
+matrix identities, the parameterized three-dimensional identities,
+the signed characters, the four cusp orbits and widths, and the
+elliptic trace. It also verifies the recorded SHA-256 hashes of the
+three original level $36$ deliverables when they are present next to
+this new directory. The mathematical proofs of generation, elliptic
+vanishing, and cusp decay are given above and do not depend on a
+finite numerical search.
+
+\begin{thebibliography}{9}
+\bibitem{CF}
+J. B. Conrey and D. W. Farmer,
+\emph{An extension of Hecke's converse theorem},
+International Mathematics Research Notices 1995, no.~9, 445--463.
+\href{https://arxiv.org/abs/math/9502209}{arXiv:math/9502209}.
+
+\bibitem{CFOS}
+J. B. Conrey, D. W. Farmer, B. E. Odgers, and N. C. Snaith,
+\emph{A converse theorem for $\Gamma_0(13)$},
+Journal of Number Theory 122 (2007), 314--323.
+\href{https://arxiv.org/abs/math/0601549}{arXiv:math/0601549}.
+
+\bibitem{BCOZ}
+B. Bedert, G. Cooper, T. Oliver, and P. Zhang,
+\emph{Twisting moduli for $\mathrm{GL}(2)$},
+Journal of Number Theory 217 (2020), 142--162,
+especially Theorem~2.4 and Section~3.4.
+\href{https://arxiv.org/abs/2003.02557}{arXiv:2003.02557}.
+\end{thebibliography}
+\end{document}

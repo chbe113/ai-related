@@ -1,0 +1,379 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\HH}{\mathfrak H}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\PSL}{\mathrm{PSL}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\bb}{\beta}
+\title{A twist-free converse theorem at level $36$}
+\author{}
+\date{27 October 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove the holomorphic Conrey--Farmer converse theorem at level $36$,
+for every positive even weight and either functional-equation sign.
+Only the local Euler conditions at $2,3,5$ are needed.  For the positive
+Fricke eigenvalue, the conditions at $2,3$ alone suffice.  The proof uses
+the Fourier support forced by the ramified Euler factors to construct a
+three-dimensional module for the full modular group.  A single $m=5$
+relation eliminates its possible noncongruence part.  No twisted
+functional equations or additional coefficient estimates are assumed.
+\end{abstract}
+
+\section{Statement and conventions}
+
+Conrey--Farmer \cite{CF} establish their holomorphic converse theorem for
+$5\le N\le12$, $14\le N\le17$, and $N=23$.  Conrey--Farmer--Odgers--Snaith
+\cite{CFOS} supply $N=13$, and Bedert--Cooper--Oliver--Zhang
+\cite{BCOZ} supply $N=18,20,24$.  The theorem below adds $N=36$ to this
+list.
+
+\begin{theorem}\label{thm:main}
+Let $k\ge2$ be even.  Let $a_1=1$, and suppose
+\[
+ F(s)=\sum_{n\ge1}\frac{a_n}{n^s}
+\]
+converges in a right half-plane.  Assume
+\begin{enumerate}
+\item $\Lambda(s)=(6/(2\pi))^s\Gamma(s)F(s)$ extends to an entire function,
+bounded in every closed vertical strip, and
+\[
+ \Lambda(s)=\omega\Lambda(k-s),\qquad \omega\in\{1,-1\};
+\]
+\item $a_n=0$ whenever $(n,6)>1$;
+\item for all $n\ge1$,
+\[
+ a_{5n}=a_5a_n-5^{k-1}a_{n/5},
+\]
+where $a_{n/5}=0$ if $5\nmid n$.
+\end{enumerate}
+Then
+\[
+ f(z)=\sum_{n\ge1}a_n e^{2\pi inz}\in S_k(\Gamma_0(36)).
+\]
+If $(-1)^{k/2}\omega=1$, hypothesis~(3) is unnecessary.
+\end{theorem}
+
+The local hypotheses in the theorem follow from the partial Euler product
+\[
+ F(s)=\frac{1}{1-a_5 5^{-s}+5^{k-1-2s}}
+       \sum_{(n,30)=1}\frac{a_n}{n^s}.
+\]
+In particular, they follow from the full Conrey--Farmer Euler product at
+level $36$: its factors at $2$ and $3$ are $1$.  No condition is imposed
+here at any other prime.
+
+For $M=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\mathrm{GL}_2^+(\mathbb R)$,
+use the normalized weight-$k$ action
+\[
+ (v|_k M)(z)=(\det M)^{k/2}(cz+d)^{-k}
+ v\left(\frac{az+b}{cz+d}\right).
+\]
+We suppress the subscript $k$.  Throughout $k$ is positive and even, so
+nonzero scalar matrices act trivially and $-I$ acts trivially.  Set
+\[
+ S=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\quad
+ T=\begin{pmatrix}1&1\\0&1\end{pmatrix},\quad
+ \bb(t)=\begin{pmatrix}1&t\\0&1\end{pmatrix},\quad
+ H_N=\begin{pmatrix}0&-1\\N&0\end{pmatrix}.
+\]
+
+Convergence in a right half-plane implies $a_n=O(n^C)$ for some $C\ge0$:
+choose a real point of convergence, use that its summands are bounded,
+and increase the exponent if necessary.  Thus the Fourier series defines
+a holomorphic function on $\HH$.  The usual Mellin-inversion argument,
+as in \cite[Section~1]{CF}, gives
+\begin{equation}\label{eq:fricke}
+ f|H_{36}=\eps f,\qquad \eps=(-1)^{k/2}\omega\in\{1,-1\}.
+\end{equation}
+We distinguish the analytic root number $\omega$ from the Fricke
+eigenvalue $\eps$ to avoid a weight-dependent sign ambiguity.
+
+\section{Two elementary lemmas}
+
+\begin{lemma}[Positive-weight elliptic vanishing]\label{lem:elliptic}
+Let $v$ be holomorphic on $\HH$, and let $k>0$ be even.  If
+$v|E=v$ for an infinite-order elliptic element $E\in\SL_2(\mathbb R)$,
+then $v=0$.
+\end{lemma}
+\begin{proof}
+Let $a\in\HH$ be the fixed point.  Use the disk coordinate
+$w=(z-a)/(z-\bar a)$ and write $m=k/2$.  The holomorphic differential
+$v(z)(dz)^m$ has the form $V(w)(dw)^m$, with $V$ holomorphic on the disk.
+The action of $E$ is $w\mapsto\zeta w$, where $|\zeta|=1$ and $\zeta$
+has infinite order.  Invariance says
+$V(w)=\zeta^m V(\zeta w)$.  If $V(w)=\sum_{j\ge0}c_jw^j$, then
+$(1-\zeta^{j+m})c_j=0$.  Since $j+m>0$, every coefficient vanishes.
+\end{proof}
+
+\begin{lemma}[A congruence-kernel criterion]\label{lem:kernel}
+Let $V$ be a complex right $\PSL_2(\mathbb Z)$-module such that $T^3$
+acts as $-\mathrm{Id}_V$.  Then $\Gamma(6)$ acts trivially on $V$.
+\end{lemma}
+\begin{proof}
+Let $\chi_2$ be the sign of the permutation induced by reduction modulo
+$2$ on $\mathbb P^1(\mathbb F_2)$.  Thus
+$\chi_2(S)=\chi_2(T)=-1$, and $\chi_2$ is trivial on $\Gamma(2)$.
+Twist the action by $\chi_2$.  In the twisted action, the operators
+corresponding to $S,T$ satisfy
+\[
+ S^2=1,\qquad (ST)^3=1,\qquad T^3=1.
+\]
+The quotient of $\PSL_2(\mathbb Z)$ obtained by imposing $T^3=1$ is the
+triangle group $(2,3,3)$, of order $12$, and reduction modulo $3$
+identifies it with $\PSL_2(\mathbb F_3)\simeq A_4$.  For completeness,
+this is the rotational symmetry group of a tetrahedron: its stabilizers
+at an edge midpoint, a vertex, and a face center have orders $2,3,3$.
+Equivalently, its standard triangle presentation gives the above
+relations and order $12$.  Reduction modulo $3$ is surjective onto a
+group of that same order, so its kernel is exactly the normal closure
+of $T^3$ in the projective modular group.
+Consequently the twisted action is trivial on $\Gamma(3)$.
+On $\Gamma(6)\subseteq\Gamma(2)\cap\Gamma(3)$ the twist itself is trivial,
+proving the assertion.
+\end{proof}
+
+\section{The three-dimensional module}
+
+Rescale the function by setting
+\[
+ h(z)=f(z/6).
+\]
+Equation~\eqref{eq:fricke} gives $h|S=\eps h$.  Since the only possible
+Fourier indices of $f$ are congruent to $1$ or $5$ modulo $6$, every
+frequency of $h$ has translation eigenvalue a primitive sixth root.
+Therefore
+\begin{equation}\label{eq:phi6}
+ h|(T^2-T+1)=0,
+ \qquad h|T^{-1}=h-h|T,
+ \qquad h|T^3=-h.
+\end{equation}
+Define
+\[
+ g=h|T,\qquad v=g|S.
+\]
+Using $STS=T^{-1}ST^{-1}$, we have
+\[
+ \eps v=h|STS
+     =h|T^{-1}ST^{-1}
+     =(\eps h-v)|T^{-1}.
+\]
+Right-multiplication by $T$ yields $v|T=h-\eps v$.  Hence
+\begin{equation}\label{eq:table}
+\begin{array}{c|cc}
+ & |S & |T\\ \hline
+ h & \eps h & g\\
+ g & v & g-h\\
+ v & g & h-\eps v
+\end{array}
+\end{equation}
+In particular, $V=\operatorname{span}_{\mathbb C}\{h,g,v\}$ is stable
+under $S$ and $T$, and therefore under the full modular group.
+Linear independence of these three functions is not assumed or needed.
+
+The formal matrices for \eqref{eq:table}, with functions as a column,
+are
+\begin{equation}\label{eq:matrices}
+ A_\eps=\begin{pmatrix}\eps&0&0\\0&0&1\\0&1&0\end{pmatrix},\qquad
+ B_\eps=\begin{pmatrix}0&1&0\\-1&1&0\\1&0&-\eps\end{pmatrix}.
+\end{equation}
+They satisfy $A_\eps^2=(A_\eps B_\eps)^3=B_\eps^6=I$.
+
+If $\eps=1$, the table gives $T^3=-\mathrm{Id}$ on all of $V$
+(equivalently, $B_1^3=-I$).  Lemma~\ref{lem:kernel} immediately implies
+$h|\Gamma(6)=h$.  This part has used only hypotheses~(1) and~(2).
+
+Suppose now that $\eps=-1$.  Put
+\begin{equation}\label{eq:u}
+ u=g+v.
+\end{equation}
+The table gives
+\begin{equation}\label{eq:u-inv}
+ u|S=u,\qquad u|T=u.
+\end{equation}
+Thus $u$ is invariant under the full modular group.  We have not yet
+proved $u=0$, and its invariance alone would not suffice.  The next
+section uses the Euler condition at $5$ to prove precisely this.
+
+\section{The \texorpdfstring{$m=5$}{m=5} relation kills the defect}
+
+We record the needed prime relation explicitly.  Hypothesis~(3) is
+equivalent to
+\[
+ f|\mathcal T_5=5^{1-k/2}a_5f,\qquad
+ \mathcal T_5=
+ \begin{pmatrix}5&0\\0&1\end{pmatrix}
+ +\sum_{r=0}^4\begin{pmatrix}1&r\\0&5\end{pmatrix}.
+\]
+Conjugate this equation by $H_{36}$, using \eqref{eq:fricke}, and subtract
+the two equations.  The two diagonal terms cancel.  Right-multiplication
+by $\operatorname{diag}(5,1)$ then gives
+\begin{equation}\label{eq:prime-before}
+ f\bigg|\sum_{r=1}^4\bb(r/5)
+ =f\bigg|\sum_{c=1}^4\begin{pmatrix}25&0\\-180c&1\end{pmatrix}.
+\end{equation}
+We also know $f|W_{36}=f$ for
+$W_{36}=\begin{pmatrix}1&0\\36&1\end{pmatrix}$, by periodicity and
+\eqref{eq:fricke}.  Changing $c$ by a multiple of $5$ on the right-hand
+side of \eqref{eq:prime-before} is therefore permitted by left
+multiplication with a power of $W_{36}$.  Reindex $c$ by
+$36bc\equiv-1\pmod5$, and set
+\[
+ \gamma_b=\begin{pmatrix}5&-b\\-36c&(1+36bc)/5\end{pmatrix}.
+\]
+Since
+$\gamma_b\bb(b/5)=\begin{pmatrix}5&0\\-36c&1/5\end{pmatrix}$,
+we obtain the Conrey--Farmer prime relation
+\begin{equation}\label{eq:prime}
+ f\bigg|\sum_{b\in\{1,-1,2,-2\}}(1-\gamma_b)\bb(b/5)=0.
+\end{equation}
+This is the $m=5$ instance of \cite[Corollary~2]{CF}; the derivation above
+also checks the normalizations and the permitted left replacements.
+
+Choose explicitly
+\[
+ \gamma_1=\begin{pmatrix}5&-1\\36&-7\end{pmatrix},\quad
+ \gamma_{-1}=\begin{pmatrix}5&1\\-36&-7\end{pmatrix},\quad
+ \gamma_2=\begin{pmatrix}5&-2\\-72&29\end{pmatrix},\quad
+ \gamma_{-2}=\begin{pmatrix}5&2\\72&29\end{pmatrix}.
+\]
+For $D=\operatorname{diag}(1,6)$ put $\delta_b=D^{-1}\gamma_bD$.
+Conjugating \eqref{eq:prime} gives
+\begin{equation}\label{eq:prime-h}
+ h\bigg|\sum_b(1-\delta_b)\bb(6b/5)=0.
+\end{equation}
+The four integral matrices are
+\[
+ \delta_1=\begin{pmatrix}5&-6\\6&-7\end{pmatrix},\quad
+ \delta_{-1}=\begin{pmatrix}5&6\\-6&-7\end{pmatrix},\quad
+ \delta_2=\begin{pmatrix}5&-12\\-12&29\end{pmatrix},\quad
+ \delta_{-2}=\begin{pmatrix}5&12\\12&29\end{pmatrix}.
+\]
+The following are exact matrix identities:
+\begin{align}
+ \delta_{\pm1}&=T^{\pm1}ST^{\pm6}ST^{\mp1},\label{eq:word1}\\
+ \delta_{\pm2}&=(ST^{\pm2}ST^{\mp2})^2.\label{eq:word2}
+\end{align}
+Continue to assume $\eps=-1$.  Since $T^6=1$ on $V$, identity
+\eqref{eq:word1} gives $h|\delta_{\pm1}=h$.  For the other two,
+\eqref{eq:table}--\eqref{eq:u-inv} give
+\[
+ h|ST^2ST^{-2}=h-u,\qquad
+ h|ST^{-2}ST^2=h+u.
+\]
+The function $u$ is invariant under both words.  Squaring them proves
+\begin{equation}\label{eq:defects}
+ h|\delta_2=h-2u,\qquad h|\delta_{-2}=h+2u.
+\end{equation}
+Thus \eqref{eq:prime-h} reduces to
+\[
+ 2u|\bb(12/5)-2u|\bb(-12/5)=0.
+\]
+Consequently $u|\bb(24/5)=u$, and $u|T=u$ then implies
+$u|\bb(1/5)=u$.  Together with $u|S=u$, this gives
+\[
+ u|E=u,\qquad E=S\bb(1/5)=\begin{pmatrix}0&-1\\1&1/5\end{pmatrix}.
+\]
+Here $\det E=1$ and $\operatorname{tr}E=1/5$.  The matrix is elliptic
+and has infinite order: a finite-order matrix has algebraic-integer
+trace, whereas the rational number $1/5$ is not an algebraic integer.
+Lemma~\ref{lem:elliptic} proves $u=0$.
+
+It follows that $v=-g$, so $V=\operatorname{span}\{h,g\}$, with
+\[
+ h|S=-h,\quad g|S=-g,\quad h|T=g,\quad g|T=g-h.
+\]
+Again $T^3=-\mathrm{Id}$ on $V$.  Lemma~\ref{lem:kernel} proves
+$h|\Gamma(6)=h$ in this sign as well.
+
+\section{Cuspidality and descent to level \texorpdfstring{$36$}{36}}
+
+We have established, for either sign, that $h$ is $\Gamma(6)$-invariant,
+that $V=\operatorname{span}\{h|\sigma:\sigma\in\SL_2(\mathbb Z)\}$ is
+finite dimensional, and that $T^3=-\mathrm{Id}$ on $V$.
+For every $\sigma\in\SL_2(\mathbb Z)$, this gives
+\begin{equation}\label{eq:anti-period}
+ (h|\sigma)(z+3)=-(h|\sigma)(z).
+\end{equation}
+
+We justify cusp holomorphy without adding a Ramanujan-type estimate.
+From $a_n=O(n^C)$, uniformly in $x$,
+\[
+ |f(x+iy)|\ll y^{-C-1}\quad(0<y\le1),
+ \qquad |f(x+iy)|\ll e^{-\pi y}\quad(y\ge1).
+\]
+The first bound follows by comparison of
+$\sum n^C e^{-2\pi ny}$ with its defining integral.  If the lower-left
+entry of $\sigma$ is nonzero, then on a bounded horizontal strip as
+$y\to\infty$, the imaginary part of $\sigma(x+iy)/6$ is comparable to
+$y^{-1}$ and the slash factor is $O(y^{-k})$.  Thus $h|\sigma$ grows
+at most polynomially at infinity.  If that entry is zero, it decays
+exponentially.
+
+Each $h|\sigma$ is holomorphic and $6$-periodic, so it is a holomorphic
+function of $q_6=e^{2\pi iz/6}$ on a punctured disk.  Polynomial growth
+in $y$ rules out all negative Laurent coefficients: on $|q_6|=r$ the
+bound is $O((1+|\log r|)^A)$ for some $A$, and Cauchy's formula bounds
+the coefficient of $q_6^{-j}$ by
+$O(r^j(1+|\log r|)^A)\to0$ for $j>0$.
+The constant coefficient vanishes by \eqref{eq:anti-period}.
+Therefore $h\in S_k(\Gamma(6))$.
+
+Finally, for $\gamma=\begin{pmatrix}a&b\\36c&d\end{pmatrix}\in\Gamma_0(36)$,
+\[
+ D^{-1}\gamma D=\begin{pmatrix}a&6b\\6c&d\end{pmatrix}.
+\]
+Because $ad\equiv1\pmod6$ and $(\mathbb Z/6\mathbb Z)^\times=\{1,-1\}$,
+this belongs to $\Gamma(6)$ or $-\Gamma(6)$.  Conversely every matrix
+in $\Gamma(6)\cup-\Gamma(6)$ is obtained in this way.  Thus
+\[
+ D^{-1}\Gamma_0(36)D=\Gamma(6)\cup-\Gamma(6).
+\]
+Since $k$ is even and $h=6^{k/2}f|D$, transformation laws and cusp
+vanishing transfer under this conjugation.  We obtain
+$f\in S_k(\Gamma_0(36))$, completing the proof of
+Theorem~\ref{thm:main}.
+
+\section{Verification}
+
+The accompanying file \texttt{verify\_N36.py} uses only exact integer and
+rational arithmetic from the Python standard library.  It verifies the
+four matrices, their word factorizations, the representation relations,
+the two defect formulas, and the conjugation of the prime relation.
+Independently of Lemma~\ref{lem:kernel}, it verifies both final
+representations on all $72$ elements of
+$\SL_2(\mathbb Z/6\mathbb Z)/\{\pm I\}$, checking both generator edges
+at every element.  These computations check the algebra; the analytic
+vanishing and cusp arguments are proved above.
+
+\begin{thebibliography}{9}
+\bibitem{CF}
+J. B. Conrey and D. W. Farmer,
+\emph{An extension of Hecke's converse theorem},
+International Mathematics Research Notices 1995, no.~9, 445--463.
+\href{https://arxiv.org/abs/math/9502209}{arXiv:math/9502209}.
+
+\bibitem{CFOS}
+J. B. Conrey, D. W. Farmer, B. E. Odgers, and N. C. Snaith,
+\emph{A converse theorem for $\Gamma_0(13)$},
+Journal of Number Theory 122 (2007), no.~2, 314--323.
+\href{https://arxiv.org/abs/math/0601549}{arXiv:math/0601549}.
+
+\bibitem{BCOZ}
+B. Bedert, G. Cooper, T. Oliver, and P. Zhang,
+\emph{Twisting moduli for $\mathrm{GL}(2)$},
+Journal of Number Theory 217 (2020), 142--162.
+\href{https://arxiv.org/abs/2003.02557}{arXiv:2003.02557}.
+\end{thebibliography}
+\end{document}
